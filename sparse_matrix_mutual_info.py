@@ -23,4 +23,6 @@ for i in range(len(mu)):
     mutual_information.append([mutual_info[mu[i]],mu[i]])
 top_mutual = (mutual_info.shape - sum(mutual_info == 0))
 index = [x[1] for x in mutual_information[-top_mutual:]]
-[(list(ingredients)[ind],mutual_info[ind]) for ind in index]
+[(list(ingredients)[ind],mutual_info[ind]) for ind in index] #print the ingredients that have mutual information
+ingred_mutual = [list(ingredients)[ind] for ind in index]
+cleansed_ind_matrix = ingredient_matrix[ingred_mutual]
