@@ -15,7 +15,7 @@ def clean_ingredients(all_ingredients):
 
 	all_ingredients = [re.sub("\d+", "", ingredient) for ingredient in  all_ingredients]
 	all_ingredients = [re.sub(r'[?|$|.|!+]',r'',ingredient) for ingredient in  all_ingredients]
-	all_ingredients = [re.sub(r'\\\\',r'',ingredient) for ingredient in  all_ingredients]
+	all_ingredients = [re.sub(r'\\',r'',ingredient) for ingredient in  all_ingredients]
 
 	stemmer=PorterStemmer()
 	all_ingredients = [stemmer.stem(ingredient) for ingredient in all_ingredients]
@@ -31,6 +31,13 @@ def clean_ingredients(all_ingredients):
 
 	#remove whitespace at the beginning
 	new_ingredients = [ingredient.replace(' ','',1) for ingredient in new_ingredients]
+
+	#remove repetitive ingredients 
+	new_ingredients = list(set(new_ingredients))
+
+	#remove blank space
+	new_ingredients = list(filter(None, new_ingredients))
+
 
 	return new_ingredients
 
