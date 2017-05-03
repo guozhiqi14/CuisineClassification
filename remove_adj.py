@@ -2,6 +2,8 @@
 Maintain only noun in the ingredients and remove all adj/adv etc.
 
 Input: A list with all ingredeients(all_ingredients)
+
+Return: A new ingredient list without words except nouns
 '''
 
 import nltk
